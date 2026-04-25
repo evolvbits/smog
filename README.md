@@ -15,6 +15,9 @@
 
 <h1 align="center">Turn data into unreadable noise.</h1>
 
+[![CI](https://github.com/evolvbits/smog/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/smog/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/smog/releases)
+![Rust](https://img.shields.io/badge/Rust-built-orange)
+
 ## Introduction
 
 `Smog` is a data sanitization utility designed to **saturate files, directories, and entire volumes**, transforming them into an impenetrable and unrecoverable digital fog.
