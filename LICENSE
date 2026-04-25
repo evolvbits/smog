@@ -1,51 +1,40 @@
 SPDX-License-Identifier: LicenseRef-Smog-Binary
 
 Smog Binary License
-====================
+===================
 
-Copyright (c) 2026 EvolvBits. All rights reserved.
+Copyright (c) 2026 EvolvBits.
+All rights reserved.
 
+This software is proprietary. The source code is not publicly available.
 
-The "Smog" repository distributes official compiled binaries only. The "Smog"
-source code is proprietary and maintained in a private repository by EvolvBits.
+Permission is granted to any person to download, install, use, and
+redistribute the unmodified Smog binary, subject to the following conditions:
 
-License Grant
--------------
-
-EvolvBits grants you a limited, non‑exclusive license to download, install, and
-use the "Smog" binary for personal, educational, or organizational purposes,
-subject to the terms described below.
-
-Acceptable Use
---------------
-
-You may use "Smog" as provided through the official releases of this repository.
+1. The software must be distributed in its original, unmodified form.
+2. This license and all copyright notices must be included.
+3. Redistribution may occur through third-party platforms, including
+   package managers such as the Arch User Repository (AUR).
 
 Restrictions
 ------------
 
 You may not:
 
-* Attempt to reverse engineer, decompile, or disassemble the software
-* Modify or create derivative works from the binary
-* Redistribute the binary outside the official release channels
-* Remove or alter copyright, attribution, or proprietary notices
-
-Distribution
-------------
-
-Official distribution of "Smog" binaries occurs exclusively through the Releases
-page of this repository. Any other source should be considered unofficial and
-not endorsed by EvolvBits.
+* Reverse engineer, decompile, or disassemble the software, except where
+  permitted by applicable law
+* Modify or create derivative works of the software
+* Misrepresent the origin of the software
 
 Ownership
 ---------
 
-"Smog", including its design, implementation, documentation, and branding,
-remains the exclusive intellectual property of EvolvBits.
+Smog and all associated intellectual property remain the exclusive property
+of EvolvBits.
 
-Warranty Disclaimer
--------------------
+Disclaimer
+----------
 
-"Smog" is provided "as is", without warranties of any kind. Use of the software
- is at your own discretion and risk.
+The software is provided "as is", without warranty of any kind, express or
+implied. In no event shall the authors be liable for any claim, damages or
+other liability arising from its use.
