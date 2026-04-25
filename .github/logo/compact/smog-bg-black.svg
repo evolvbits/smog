@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Created with Inkscape (http://www.inkscape.org/)
+  © 2026 William C. Canin
+  This artwork is protected by copyright.
+  Unauthorized use, copying, or modification is prohibited.
+-->
+
+<svg
+   width="270mm"
+   height="270mm"
+   viewBox="0 0 270 270"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="smog-git.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><title
+     id="title1">smog</title><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.25"
+     inkscape:cx="650"
+     inkscape:cy="720"
+     inkscape:window-width="1374"
+     inkscape:window-height="991"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="smog"
+     inkscape:groupmode="layer"
+     id="layer1"><rect
+       style="opacity:1;fill:#000000;stroke-width:1.25058;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1"
+       id="rect1"
+       width="270"
+       height="270"
+       x="0"
+       y="0"
+       inkscape:label="background"
+       sodipodi:insensitive="true" /><g
+       id="g1"
+       transform="translate(2.1166667,3.175)"><path
+         style="fill:#69696c;fill-opacity:1;stroke:#68676a;stroke-width:0.897028;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;stroke-opacity:1"
+         d="m 140.8856,165.96625 c 48.22637,-7.19304 66.56584,-48.0659 18.07265,-73.917252 C 147.56589,86.669273 135.64403,82.180513 124.86509,75.658089 108.65593,65.849774 139.84466,50.413481 155.48205,72.097978 229.67781,31.636052 266.58836,175.042 140.8856,165.96625 Z"
+         id="path1"
+         sodipodi:nodetypes="ccscc"
+         inkscape:label="smog-right" /><text
+         xml:space="preserve"
+         style="font-size:45.5695px;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke-width:0.897028;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1"
+         x="61.495106"
+         y="214.02776"
+         id="text1"
+         inkscape:label="smog-text"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.5695px;font-family:Orbitron;-inkscape-font-specification:Orbitron;fill:#ffffff;stroke-width:0.897028"
+           x="61.495106"
+           y="214.02776">smog</tspan></text><path
+         style="fill:#f4f4f5;fill-opacity:1;stroke:#f5f4f5;stroke-width:0.897028;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;stroke-opacity:1"
+         d="M 159.1298,161.16289 C 134.73323,165.09171 104.67457,158.31773 78.731001,150.36962 48.565683,137.75423 66.168662,95.903513 92.996151,126.70626 138.97587,179.00853 202.13262,123.68331 145.35764,97.169014 128.82801,89.449568 116.19595,81.992098 112.12825,77.365631 86.901573,48.673719 166.58523,34.520776 150.22457,74.848253 183.16777,60.190528 128.95274,13.223607 96.366028,63.863706 c -11.446185,22.075247 9.000562,35.180487 29.949412,47.095764 8.46019,5.41992 -6.846,7.88309 -11.33417,6.5164 -7.88897,-2.40228 -17.357423,-10.64439 -23.495547,-16.78253 -17.782588,-17.782585 -52.800545,-5.742404 -51.588626,29.79047 3.727123,30.70347 36.230681,32.51446 54.60948,34.82226 30.671083,2.7218 55.299383,1.7074 64.623223,-4.14318 z"
+         id="path2"
+         sodipodi:nodetypes="cccsscccscccc"
+         inkscape:label="smog-left" /><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.65598px;font-family:Orbitron;-inkscape-font-specification:Orbitron;writing-mode:lr-tb;direction:ltr;opacity:0.990863;fill:#ffffff;fill-opacity:1;stroke:#f5f4f5;stroke-width:0.766769;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;stroke-opacity:1"
+         x="197.86662"
+         y="192.03593"
+         id="text2"
+         inkscape:label="copyright-symbol"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-size:8.65598px;stroke:none;stroke-width:0.766769"
+           x="197.86662"
+           y="192.03593">©</tspan></text></g></g><metadata
+     id="metadata1"><rdf:RDF><cc:Work
+         rdf:about=""><dc:creator><cc:Agent><dc:title>William C. Canin</dc:title></cc:Agent></dc:creator><dc:rights><cc:Agent><dc:title>© 2026 William C. Canin. Unauthorized use prohibited.</dc:title></cc:Agent></dc:rights><dc:publisher><cc:Agent><dc:title>William C. Canin</dc:title></cc:Agent></dc:publisher><dc:date>2026/04/18</dc:date><dc:title>smog</dc:title><dc:source>Orbitron</dc:source></cc:Work></rdf:RDF></metadata></svg>
