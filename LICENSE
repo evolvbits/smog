@@ -1,0 +1,51 @@
+SPDX-License-Identifier: LicenseRef-Smog-Binary
+
+Smog Binary License
+====================
+
+Copyright (c) 2026 EvolvBits. All rights reserved.
+
+
+The "Smog" repository distributes official compiled binaries only. The "Smog"
+source code is proprietary and maintained in a private repository by EvolvBits.
+
+License Grant
+-------------
+
+EvolvBits grants you a limited, non‑exclusive license to download, install, and
+use the "Smog" binary for personal, educational, or organizational purposes,
+subject to the terms described below.
+
+Acceptable Use
+--------------
+
+You may use "Smog" as provided through the official releases of this repository.
+
+Restrictions
+------------
+
+You may not:
+
+* Attempt to reverse engineer, decompile, or disassemble the software
+* Modify or create derivative works from the binary
+* Redistribute the binary outside the official release channels
+* Remove or alter copyright, attribution, or proprietary notices
+
+Distribution
+------------
+
+Official distribution of "Smog" binaries occurs exclusively through the Releases
+page of this repository. Any other source should be considered unofficial and
+not endorsed by EvolvBits.
+
+Ownership
+---------
+
+"Smog", including its design, implementation, documentation, and branding,
+remains the exclusive intellectual property of EvolvBits.
+
+Warranty Disclaimer
+-------------------
+
+"Smog" is provided "as is", without warranties of any kind. Use of the software
+ is at your own discretion and risk.

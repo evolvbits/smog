@@ -1,0 +1,8 @@
+# Custom Dictionary Words
+smog
+canin
+williamcanin
+evolv
+evolvbits
+keyserver
+openpgp
