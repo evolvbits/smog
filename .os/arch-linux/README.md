@@ -2,9 +2,6 @@
 
 AUR packaging for **Smog**
 
-Source code lives on GitHub:
-[https://github.com/evolvbits/smog](https://github.com/evolvbits/smog)
-
 ---
 
 ## 🔧 Maintainer workflow (AUR)
@@ -12,8 +9,8 @@ Source code lives on GitHub:
 ### First time setup
 
 ```sh
-git clone ssh://aur@aur.archlinux.org/smog.git
-cd shred-extension-rs
+git clone ssh://aur@aur.archlinux.org/smog-bin.git
+cd smog-bin
 ```
 
 Copy the packaging files into this repo:
@@ -50,7 +47,7 @@ makepkg --printsrcinfo > .SRCINFO
 git init
 git add PKGBUILD .SRCINFO smog.install README.md
 git commit -m "initial release"
-git remote add origin ssh://aur@aur.archlinux.org/smog.git
+git remote add origin ssh://aur@aur.archlinux.org/smog-bin.git
 git push -u origin master
 ```
 
@@ -64,13 +61,13 @@ rm -rf src pkg *.pkg.tar.zst(N) *.tar.gz(N) *.log(N)
 
 ## 🔁 Updating package when a new GitHub tag is released
 
-Example: new tag `v0.1.1`
+Example: new tag `v0.3.2`
 
 1. Update version in `PKGBUILD`:
 
 ```sh
 # edit PKGBUILD
-pkgver=0.1.1
+pkgver=0.3.2
 ```
 
 2. Recalculate checksums:
@@ -89,7 +86,7 @@ makepkg --printsrcinfo > .SRCINFO
 
 ```sh
 git add PKGBUILD .SRCINFO
-git commit -m "bump to 0.1.1"
+git commit -m "bump to 0.3.2"
 git push
 ```
 
