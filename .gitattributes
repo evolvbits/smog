@@ -5,6 +5,8 @@
 *.md text eol=lf
 LICENSE text eol=lf
 *.txt text eol=lf
+*.sh text eol=lf
+*.install text eol=lf
 
 # Prevent GitHub Linguist from trying to detect languages
 * linguist-vendored
