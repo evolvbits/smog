@@ -2,7 +2,7 @@
 <!-- markdownlint-disable MD041 -->
 
 <p align="center">
-  <img style="border-radius: 5px;" src="https://raw.githubusercontent.com/evolvbits/smog/refs/heads/main/.github/logo/smog-git.svg" alt="smog" width="180"/>
+  <img style="border-radius: 5px;" src="https://raw.githubusercontent.com/evolvbits/smog/refs/heads/main/.github/logo/compact/smog-git.svg" alt="smog" width="180"/>
 </p>
 
 <h1 align="center">Turn data into unreadable noise.</h1>
