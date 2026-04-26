@@ -7,12 +7,15 @@
 
 <h1 align="center">Turn data into unreadable noise.</h1>
 
-![CI](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/7063a5c9dcdef72c95ee28b3b80cb3ef/raw/smog-ci.json)
-[![Version](https://img.shields.io/github/v/release/evolvbits/smog)](https://github.com/evolvbits/smog/releases)
-[![Downloads](https://img.shields.io/github/downloads/evolvbits/smog/total)](https://github.com/evolvbits/smog/releases)
-[![Rust](https://img.shields.io/badge/built%20with-Rust-orange?logo=rust)](https://www.rust-lang.org)
-[![Platform](https://img.shields.io/badge/platform-linux--x86__64-blue)](https://github.com/evolvbits/smog/releases)
-[![License](https://img.shields.io/badge/license-Proprietary-red)](https://github.com/evolvbits/smog)
+[![CI](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/9cd2e99c8f6108b24fb04994bfe37644/raw/smog-ci.json)](https://github.com/evolvbits/smog/actions)
+[![Version](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/9cd2e99c8f6108b24fb04994bfe37644/raw/smog-version.json)](https://github.com/evolvbits/smog/tree/binaries)
+![Target](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/9cd2e99c8f6108b24fb04994bfe37644/raw/smog-target.json)
+![Rust](https://img.shields.io/badge/rust-stable-orange)
+![Lint](https://img.shields.io/badge/lint-clippy-blue)
+[![Installer](https://img.shields.io/badge/installer-script-blue)](https://github.com/evolvbits/smog/tree/main/installer)
+[![License](https://img.shields.io/badge/license-proprietary-red)](LICENSE)
+<!-- ![AUR version](https://img.shields.io/aur/version/smog-bin) -->
+<!-- ![Size](https://img.shields.io/badge/size-2.1MB-blue) -->
 
 ## Introduction
 
