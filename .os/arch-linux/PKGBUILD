@@ -1,7 +1,7 @@
 # Maintainer: William Canin <hello.williamcanin@gmail.com>
 
 pkgname=smog-bin
-pkgver=0.1.0
+pkgver=0.3.1
 pkgrel=1
 pkgdesc="Turn data into unreadable noise."
 arch=('x86_64')
@@ -9,9 +9,17 @@ url="https://github.com/evolvbits/smog"
 license=('custom')
 depends=('glibc' 'gcc-libs')
 install='smog.install'
+conflicts=()
+provides=()
+
+# Using releases [old]
+# source=(
+#   "smog-$pkgver-linux-x86_64::https://github.com/evolvbits/smog/releases/download/v$pkgver/smog-$pkgver-linux-x86_64"
+#   "LICENSE::https://raw.githubusercontent.com/evolvbits/smog/main/LICENSE"
+# )
 
 source=(
-  "smog-$pkgver-linux-x86_64::https://github.com/evolvbits/smog/releases/download/v$pkgver/smog-$pkgver-linux-x86_64"
+  "smog-$pkgver-linux-x86_64::https://raw.githubusercontent.com/evolvbits/smog/binaries/v$pkgver/smog-$pkgver-linux-x86_64"
   "LICENSE::https://raw.githubusercontent.com/evolvbits/smog/main/LICENSE"
 )
 
