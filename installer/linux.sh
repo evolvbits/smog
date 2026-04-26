@@ -9,7 +9,7 @@ NAME="smog"
 REPO="evolvbits/smog"
 API_URL="https://api.github.com/repos/${REPO}/releases/latest"
 BINARY_NAME="smog"
-ARCH="x86_64"
+ARCH="linux-x86_64"
 INSTALLATION_DIR="$HOME/.local/bin"
 REQUIRED=("curl" "wget")
 
