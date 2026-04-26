@@ -3,6 +3,13 @@
 *~
 *.bak
 
+# Arch Linux
+*.zst
+.os/arch-linux/*src
+.os/arch-linux/*pkg
+.os/arch-linux/smog-*
+.os/arch-linux/LICENSE
+
 # This repo
 # -------------------------------------------------------------
 tmp/
