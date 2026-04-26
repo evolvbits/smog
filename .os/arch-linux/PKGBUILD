@@ -9,6 +9,7 @@ url="https://github.com/evolvbits/smog"
 license=('custom')
 depends=('glibc' 'gcc-libs')
 install='smog.install'
+options=('!debug')
 conflicts=()
 provides=()
 
