@@ -1,22 +1,18 @@
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD041 -->
 
-> UNDER DEVELOPMENT
->
-> The `smog` is not yet released, however some links may not be available.
->
-> Keep an eye on: [https://github.com/evolvbits/smog/releases](https://github.com/evolvbits/smog/releases) for the release.
-
-<br><br><br>
-
 <p align="center">
   <img style="border-radius: 5px;" src="https://raw.githubusercontent.com/evolvbits/smog/refs/heads/main/.github/logo/smog-git.svg" alt="smog" width="180"/>
 </p>
 
 <h1 align="center">Turn data into unreadable noise.</h1>
 
-[![CI](https://github.com/evolvbits/smog/actions/workflows/ci.yml/badge.svg)](https://github.com/evolvbits/smog/actions/workflows/ci.yml) [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/evolvbits/smog/releases)
-![Rust](https://img.shields.io/badge/Rust-built-orange)
+![CI](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/7063a5c9dcdef72c95ee28b3b80cb3ef/raw/smog-ci.json)
+[![Version](https://img.shields.io/github/v/release/evolvbits/smog)](https://github.com/evolvbits/smog/releases)
+[![Downloads](https://img.shields.io/github/downloads/evolvbits/smog/total)](https://github.com/evolvbits/smog/releases)
+[![Rust](https://img.shields.io/badge/built%20with-Rust-orange?logo=rust)](https://www.rust-lang.org)
+[![Platform](https://img.shields.io/badge/platform-linux--x86__64-blue)](https://github.com/evolvbits/smog/releases)
+[![License](https://img.shields.io/badge/license-Proprietary-red)](https://github.com/evolvbits/smog)
 
 ## Introduction
 
