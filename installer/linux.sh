@@ -1,151 +1,118 @@
 #!/usr/bin/env bash
-
-# Author: William C. Canin <https://williamcanin.github.io>
-
 set -euo pipefail
 
+# ===== Config =====
 NAME="smog"
 REPO="evolvbits/smog"
 DIST_BRANCH="binaries"
-DIST_BASE_URL="https://raw.githubusercontent.com/${REPO}/${DIST_BRANCH}"
-BINARY_NAME="smog"
+BASE_URL="https://raw.githubusercontent.com/${REPO}/${DIST_BRANCH}"
+INSTALL_DIR="/usr/local/bin"
 ARCH="x86_64"
 BINARY_SUFFIX="linux-${ARCH}"
-INSTALLATION_DIR="$HOME/.local/bin"
-REQUIRED=("curl" "wget")
 
-# ----- libs -----
-title () {
-    printf "\e[0;35m[ %s\e[0m\n" "$1 ]"
-}
+# ===== UI =====
+title()   { printf "\e[0;35m[ %s ]\e[0m\n" "$1"; }
+info()    { printf "\e[0;36m-> %s\e[0m\n" "$1"; }
+warn()    { printf "\e[0;33m! %s\e[0m\n" "$1"; }
+error()   { printf "\e[0;31mx %s\e[0m\n" "$1"; }
+success() { printf "\e[0;32m* %s\e[0m\n" "$1"; }
 
-info () {
-    printf "\e[0;36m-> %s\e[0m$2" "$1"
-}
+# ===== Checks =====
+[[ "$(uname -s)" != "Linux" ]] && { error "Linux only"; exit 1; }
+[[ "$(uname -m)" != "x86_64" ]] && { error "Only x86_64 supported"; exit 1; }
 
-finish () {
-    printf "\e[0;32m* %s\e[0m\n" "$1"
-}
+command -v curl >/dev/null || { error "curl is required"; exit 1; }
 
-warning () {
-    printf "\e[0;33m! %s\e[0m$2" "$1"
-}
-
-error () {
-    printf "\e[0;31mx %s\e[0m\n" "$1"
-}
-
-# ----- Ignore root user -----
-if [ "$EUID" -eq 0 ]; then
-  error "Error: This script should not be run as root or with sudo."
-  exit 1
+# ===== Root handling =====
+SUDO=""
+if [ "$EUID" -ne 0 ]; then
+  if command -v sudo >/dev/null 2>&1; then
+    SUDO="sudo"
+  elif command -v doas >/dev/null 2>&1; then
+    SUDO="doas"
+  fi
 fi
 
-# ----- OS check -----
-OS_TYPE=$(uname -s)
-if [ "$OS_TYPE" != "Linux" ]; then
-  error "Error: This script is only supported on Linux."
-  info "Detected OS: " "$OS_TYPE\n"
-  exit 1
-fi
-
-# ----- ARCH Check -----
-CURRENT_ARCH=$(uname -m)
-if [ "$CURRENT_ARCH" != "x86_64" ]; then
-  error "Error: This binary is only for x86_64 architecture."
-  exit 1
-fi
-
-# ----- Required check -----
-for bin in "${REQUIRED[@]}"; do
-  if ! command -v "$bin" >/dev/null 2>&1; then
-    error "Error: '$bin' not found."
+require_root() {
+  if [ -z "$SUDO" ] && [ "$EUID" -ne 0 ]; then
+    error "Root privileges required (sudo/doas not found)"
     exit 1
   fi
-done
+}
 
-# ----- Uninstall mode -----
-if [ "${1:-}" == "--uninstall" ]; then
-    title "$NAME Uninstall"
+# ===== List versions =====
+if [[ "${1:-}" == "--versions" ]]; then
+  title "Available versions"
 
-    detect_and_remove () {
-        local DIR="$1"
-        if [ -f "$DIR/$BINARY_NAME" ]; then
-            info "Removing from: " "${DIR}\n"
-            rm -fv "$DIR/$BINARY_NAME"
-            return 0
-        fi
-        return 1
-    }
+  curl -fsSL "https://api.github.com/repos/${REPO}/contents/?ref=${DIST_BRANCH}" \
+    | grep '"name": "v' \
+    | cut -d '"' -f4 \
+    | sort -V
 
-    FOUND=0
-
-    for d in \
-        $INSTALLATION_DIR
-    do
-        detect_and_remove "$d" && FOUND=1
-    done
-
-    if [ "$FOUND" -eq 0 ]; then
-        warning "No installation found." "\n"
-    else
-        finish "Uninstallation completed!"
-    fi
-
-    exit 0
+  exit 0
 fi
 
-# ----- Download mode -----
-title "$NAME Installation"
-if command -v curl >/dev/null 2>&1; then
-        VERSION_TAG=$(curl -fsSL "${DIST_BASE_URL}/latest.txt" | tr -d '[:space:]')
+# ===== Uninstall =====
+if [[ "${1:-}" == "--uninstall" ]]; then
+  require_root
+
+  title "Uninstalling $NAME"
+
+  if [ -f "${INSTALL_DIR}/${NAME}" ]; then
+    $SUDO rm -v "${INSTALL_DIR}/${NAME}"
+    success "Removed from ${INSTALL_DIR}"
+  else
+    warn "Not installed"
+  fi
+
+  exit 0
+fi
+
+# ===== Resolve version =====
+if [[ -n "${1:-}" ]]; then
+  VERSION_TAG="$1"
 else
-        VERSION_TAG=$(wget -qO- "${DIST_BASE_URL}/latest.txt" | tr -d '[:space:]')
+  VERSION_TAG=$(curl -fsSL "${BASE_URL}/latest.txt" | tr -d '[:space:]')
 fi
 
-if [ -z "$VERSION_TAG" ]; then
-        error "Error: Could not retrieve the latest release version from binary channel."
-        exit 1
-fi
-info "Latest version: " "${VERSION_TAG}\n"
-info "Target file: " "${BINARY_NAME}-${VERSION_TAG}-${BINARY_SUFFIX}\n"
+[[ -z "$VERSION_TAG" ]] && { error "Failed to resolve version"; exit 1; }
 
-DOWNLOAD_URL="${DIST_BASE_URL}/v${VERSION_TAG}/${BINARY_NAME}-${VERSION_TAG}-${BINARY_SUFFIX}"
+VERSION="${VERSION_TAG#v}"
+BIN_NAME="${NAME}-${VERSION}-${BINARY_SUFFIX}"
+DOWNLOAD_URL="${BASE_URL}/v${VERSION}/${BIN_NAME}"
 
-rm -f $BINARY_NAME
-info "Download link: " "$DOWNLOAD_URL\n"
-if command -v curl >/dev/null 2>&1; then
-    if curl -L --fail --progress-bar "$DOWNLOAD_URL" -o "$BINARY_NAME"; then
-            finish "Download completed successfully."
-    else
-            error "Error: Failed to download the latest release."
-            rm -f "$BINARY_NAME"
-            exit 1
-    fi
+# ===== Start =====
+title "$NAME Installer"
+info "Version: $VERSION_TAG"
+info "Download: $DOWNLOAD_URL"
+
+TMP_FILE=$(mktemp)
+
+# ===== Download =====
+if curl -fL --progress-bar "$DOWNLOAD_URL" -o "$TMP_FILE"; then
+  success "Download complete"
 else
-    if wget -q --show-progress "$DOWNLOAD_URL" -O "$BINARY_NAME"; then
-            finish "Download completed successfully."
-    else
-            error "Error: Failed to download the latest release."
-            rm -f "$BINARY_NAME"
-            exit 1
-    fi
+  error "Download failed"
+  rm -f "$TMP_FILE"
+  exit 1
 fi
-info "Target file rename to: " "${BINARY_NAME}\n"
 
-# ----- Show SHA256SUM Binary -----
+# ===== Integrity (basic) =====
 if command -v sha256sum >/dev/null 2>&1; then
-    info "SHA256SUM Binary: " ""; sha256sum $BINARY_NAME
+  # info "SHA256:"
+  # sha256sum "$TMP_FILE"
+  HASH=$(sha256sum "$TMP_FILE" | awk '{print $1}')
+  info "SHA256: $HASH"
 fi
 
-# ----- Install mode -----
-mkdir -p "$INSTALLATION_DIR"
-rm -f "$INSTALLATION_DIR/$BINARY_NAME"
-cp -f $BINARY_NAME "${INSTALLATION_DIR}/"
-chmod +x "$INSTALLATION_DIR/$BINARY_NAME"
-rm -f $BINARY_NAME
+# ===== Install =====
+require_root
 
-# ----- Info mode -----
-finish "Installation completed successfully!"
-warning "$NAME was installed on: " ""; printf "%s\n" "$INSTALLATION_DIR"
-warning "NOTE: " "";  printf "Add the path \"%s\" to your system's PATH.\n" "$INSTALLATION_DIR"
+title "Installing to ${INSTALL_DIR}"
+
+$SUDO install -Dm755 "$TMP_FILE" "${INSTALL_DIR}/${NAME}"
+
+rm -f "$TMP_FILE"
+
+success "Installation complete!"
+info "Run: ${NAME}"
