@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # Author: William C. Canin <https://williamcanin.github.io>
@@ -7,31 +6,33 @@ set -euo pipefail
 
 NAME="smog"
 REPO="evolvbits/smog"
-API_URL="https://api.github.com/repos/${REPO}/releases/latest"
+DIST_BRANCH="binaries"
+DIST_BASE_URL="https://raw.githubusercontent.com/${REPO}/${DIST_BRANCH}"
 BINARY_NAME="smog"
-ARCH="linux-x86_64"
+ARCH="x86_64"
+BINARY_SUFFIX="linux-${ARCH}"
 INSTALLATION_DIR="$HOME/.local/bin"
 REQUIRED=("curl" "wget")
 
 # ----- libs -----
 title () {
-	printf "\e[0;35m[ %s\e[0m\n" "$1 ]"
+    printf "\e[0;35m[ %s\e[0m\n" "$1 ]"
 }
 
 info () {
-	printf "\e[0;36m-> %s\e[0m$2" "$1"
+    printf "\e[0;36m-> %s\e[0m$2" "$1"
 }
 
 finish () {
-	printf "\e[0;32m* %s\e[0m\n" "$1"
+    printf "\e[0;32m* %s\e[0m\n" "$1"
 }
 
 warning () {
-	printf "\e[0;33m! %s\e[0m$2" "$1"
+    printf "\e[0;33m! %s\e[0m$2" "$1"
 }
 
 error () {
-	printf "\e[0;31mx %s\e[0m\n" "$1"
+    printf "\e[0;31mx %s\e[0m\n" "$1"
 }
 
 # ----- Ignore root user -----
@@ -97,44 +98,44 @@ fi
 # ----- Download mode -----
 title "$NAME Installation"
 if command -v curl >/dev/null 2>&1; then
-		VERSION_TAG=$(curl -s "$API_URL" | grep '"tag_name":' | sed -E 's/.*"v?([^"]+)".*/\1/')
+        VERSION_TAG=$(curl -fsSL "${DIST_BASE_URL}/latest.txt" | tr -d '[:space:]')
 else
-		VERSION_TAG=$(wget -qO- "$API_URL" | grep '"tag_name":' | sed -E 's/.*"v?([^"]+)".*/\1/')
+        VERSION_TAG=$(wget -qO- "${DIST_BASE_URL}/latest.txt" | tr -d '[:space:]')
 fi
 
 if [ -z "$VERSION_TAG" ]; then
-		error "Error: Could not retrieve the latest release version from GitHub."
-		exit 1
+        error "Error: Could not retrieve the latest release version from binary channel."
+        exit 1
 fi
 info "Latest version: " "${VERSION_TAG}\n"
-info "Target file: " "${BINARY_NAME}-${VERSION_TAG}-${ARCH}\n"
+info "Target file: " "${BINARY_NAME}-${VERSION_TAG}-${BINARY_SUFFIX}\n"
 
-DOWNLOAD_URL="https://github.com/${REPO}/releases/download/v${VERSION_TAG}/${BINARY_NAME}-${VERSION_TAG}-${ARCH}"
+DOWNLOAD_URL="${DIST_BASE_URL}/v${VERSION_TAG}/${BINARY_NAME}-${VERSION_TAG}-${BINARY_SUFFIX}"
 
 rm -f $BINARY_NAME
 info "Download link: " "$DOWNLOAD_URL\n"
 if command -v curl >/dev/null 2>&1; then
-	if curl -L --fail --progress-bar "$DOWNLOAD_URL" -o "$BINARY_NAME"; then
-			finish "Download completed successfully."
-	else
-			error "Error: Failed to download the latest release."
-			rm -f "$BINARY_NAME"
-			exit 1
-	fi
+    if curl -L --fail --progress-bar "$DOWNLOAD_URL" -o "$BINARY_NAME"; then
+            finish "Download completed successfully."
+    else
+            error "Error: Failed to download the latest release."
+            rm -f "$BINARY_NAME"
+            exit 1
+    fi
 else
-	if wget -q --show-progress "$DOWNLOAD_URL" -O "$BINARY_NAME"; then
-			finish "Download completed successfully."
-	else
-			error "Error: Failed to download the latest release."
-			rm -f "$BINARY_NAME"
-			exit 1
-	fi
+    if wget -q --show-progress "$DOWNLOAD_URL" -O "$BINARY_NAME"; then
+            finish "Download completed successfully."
+    else
+            error "Error: Failed to download the latest release."
+            rm -f "$BINARY_NAME"
+            exit 1
+    fi
 fi
 info "Target file rename to: " "${BINARY_NAME}\n"
 
 # ----- Show SHA256SUM Binary -----
 if command -v sha256sum >/dev/null 2>&1; then
-	info "SHA256SUM Binary: " ""; sha256sum $BINARY_NAME
+    info "SHA256SUM Binary: " ""; sha256sum $BINARY_NAME
 fi
 
 # ----- Install mode -----
