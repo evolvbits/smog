@@ -12,10 +12,10 @@
 ![Target](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/williamcanin/9cd2e99c8f6108b24fb04994bfe37644/raw/smog-target.json)
 ![Rust](https://img.shields.io/badge/rust-stable-orange)
 ![Lint](https://img.shields.io/badge/lint-clippy-blue)
-[![Installer](https://img.shields.io/badge/installer-script-blue)](https://github.com/evolvbits/smog/tree/main/installer)
+[![Installer](https://img.shields.io/badge/installer-script-blue)](https://evolvbits.github.io/smog/#install)
 [![License](https://img.shields.io/badge/license-proprietary-red)](LICENSE)
-<!-- ![AUR version](https://img.shields.io/aur/version/smog-bin) -->
-<!-- ![Size](https://img.shields.io/badge/size-2.1MB-blue) -->
+[![AUR version](https://img.shields.io/aur/version/smog-bin)](https://aur.archlinux.org/packages/smog-bin)
+![Size](https://img.shields.io/badge/size-1.6MB-blue)
 
 ## Introduction
 
