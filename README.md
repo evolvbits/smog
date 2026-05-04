@@ -53,11 +53,11 @@ For full documentation and usage guides, visit the official pages below.
 
 ## Official page
 
-[https://evolvbits.github.io/products/smog/](https://evolvbits.github.io/products/smog/)
+[https://evolvbits.github.io/smog/](https://evolvbits.github.io/smog/)
 
 ## Documentation
 
-[https://evolvbits.github.io/products/smog/documentation/](https://evolvbits.github.io/products/smog/documentation/)
+[https://evolvbits.github.io/smog/documentation/](https://evolvbits.github.io/smog/documentation/)
 
 ## Community
 
